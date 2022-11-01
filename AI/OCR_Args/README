@@ -1,0 +1,17 @@
+#################################################################################################################################################################
+# Run the following commands in your Unix/Linux or WSL Environment < command line>                                                                              #
+# The sudo apt-get upgrade command downloads and installs the updates for each outdated package and dependency on your system.                                  #
+# But just running sudo apt-get upgrade will not automatically upgrade the outdated packages – you'll still have a chance to review the changes and confirm     #
+# that you want to perform the upgrades                                                                                                                         #
+#################################################################################################################################################################
+# The command sudo apt-get install command is used to download the latest version of your desired application from an online software repository                #
+# pointed to by your sources.list configuration file and and install that application on your Linux machine.                                                    #
+#################################################################################################################################################################
+# PIP is a package manager for Python packages, or modules if you like.                                                                                         #
+# The pip install <package> command always looks for the latest version of the package and installs it. It also searches for dependencies listed in the package #
+# metadata and installs them to ensure that the package has all the requirements that it needs.                                                                 #
+#################################################################################################################################################################
+sudo apt-get update
+sudo apt-get install tesseract-ocr
+sudo apt-get install libtesseract-dev
+pip install numpy==1.19.4 Pillow==8.0.1 PyMuPDF==1.18.9 pytesseract==0.3.7

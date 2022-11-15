@@ -39,3 +39,73 @@ print('pandas: {}'.format(pandas.__version__))
 # scikit-learn
 import sklearn
 print('sklearn: {}'.format(sklearn.__version__))
+
+
+##################
+# Load libraries #
+##################
+import pandas
+from pandas.plotting import scatter_matrix
+import matplotlib.pyplot as plt
+from sklearn import model_selection
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
+
+%python
+########################################
+# list tables available in our Hive    #
+# The Starter End Point must be active #
+########################################
+dbutils.fs.ls("dbfs:/user/hive/warehouse")
+
+########################################
+# Load Data and assign column headings #
+########################################
+print(' -----------------------------------------------------------------------------------------------------')
+print(' --------------------------------------------  Load Data -------------------------------------------- ')
+print(' -----------------------------------------------------------------------------------------------------')
+dataset = spark.read.load("dbfs:/user/hive/warehouse/iris").toPandas()
+dataset.columns = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
+#####################
+# Print our DataSet #
+#####################
+display(dataset)
+
+      ################# ONLY REQUIRED FOR LOCAL EXECUTION ########################
+      # *** IF YOU ARE NOT USING Databricks and running local use this code **** #
+      # *** you must load the iris.csv into the directory specified by you  **** #
+      # *** in the URL - google Iris this is a common AI project            *****#
+      ################# READ ME --- READ ME --- READ ME --- ######################
+      # url = "C:\SOMEDIR\ANOTHERDIR\iris.csv"
+      # names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
+      # dataset = pandas.read_csv(url, names=names)
+
+
+##################################################
+# display shape data the number of rows, columns #
+##################################################
+print(' ----------------------------------------------------------------------------------------')
+print(' -------------------------------------------- Print Shape Data (Rows/Col)')
+print(' ----------------------------------------------------------------------------------------')
+print(dataset.shape)
+#################################################
+# print the 10 first rows with the head command #
+#################################################
+print(' ----------------------------------------------------------------------------------------')
+print(' -------------------------------------------- Print Head(10) - Data ')
+print(' ----------------------------------------------------------------------------------------')
+print(dataset.head(10))
+#################################################
+# print the 10 first rows with the head command #
+#################################################
+print(' ----------------------------------------------------------------------------------------')
+print(' -------------------------------------------- Print Describe - Data ')
+print(' ----------------------------------------------------------------------------------------')
+print(dataset.describe())

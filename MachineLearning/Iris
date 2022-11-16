@@ -1,8 +1,8 @@
 %python
-#######################################################################################################################
-# This is the IRIS Machine learning project with extensive comments poeple who are new to machine learning and python #
-# I am not the authore of the code base just of the comments - some small code changes were made to access the dataset#
-# Import lybraries and version                                                                                        #
+###########################################################################################################################
+# This is the IRIS Machine learning project with extensive comments developers who are new to machine learning and python #
+# I am not the authore of the code base just of the comments - some small code changes were made to access the dataset    #
+# Import lybraries and version                                                                                            #
 #################################################################################################################################################
 ################################################### --- LIBRARY DEFINITIONS --- #################################################################
 #################################################################################################################################################

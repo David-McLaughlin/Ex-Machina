@@ -3,29 +3,7 @@
 # This is the IRIS Machine learning project with extensive comments developers who are new to machine learning and python #
 # I am not the authore of the code base just of the comments - some small code changes were made to access the dataset    #
 # Import lybraries and version                                                                                            #
-#################################################################################################################################################
-################################################### --- LIBRARY DEFINITIONS --- #################################################################
-#################################################################################################################################################
-# scipy
-# SciPy is a scientific computation library that uses NumPy underneath. SciPy stands for Scientific Python.
-# It provides more utility functions for optimization, stats and signal #processing. Like NumPy, SciPy is open source so we can use it freely.
-#################################################################################################################################################
-# numpy
-# NumPy is a Python library used for working with arrays. It also has functions for working in domain of linear algebra, fourier transform, and matrices. 
-# NumPy was created in 2005 by Travis Oliphant. It is an open source project and you can use it freely.
-#################################################################################################################################################
-# matplotlib
-# Matplotlib is a cross-platform, data visualization and graphical plotting library for Python and its numerical extension NumPy.
-#################################################################################################################################################
-# pandas
-# pandas is a software library written for the Python programming language for data manipulation and analysis. 
-# In particular, it offers data structures and operations for manipulating numerical tables and time series
-#################################################################################################################################################
-# sklearn
-# What is the sklearn in Python?
-# Scikit-learn is a free machine learning library for Python. It features various algorithms like support vector machine, random forests, 
-# and k-neighbours, and it also supports Python numerical and scientific libraries like NumPy and SciPy 
-#################################################################################################################################################
+
 import sys
 print('Python: {}'.format(sys.version))
 import scipy
@@ -81,7 +59,7 @@ display(dataset)
       # *** IF YOU ARE NOT USING Databricks and running local use this code **** #
       # *** you must load the iris.csv into the directory specified by you  **** #
       # *** in the URL - google Iris this is a common AI project            *****#
-      ################# READ ME --- READ ME --- READ ME --- ######################
+      ################################# READ ME ##################################
       # url = "C:\SOMEDIR\ANOTHERDIR\iris.csv"
       # names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
       # dataset = pandas.read_csv(url, names=names)
@@ -108,3 +86,31 @@ print(' ------------------------------------------------------------------------
 print(' -------------------------------------------- Print Describe - Data ')
 print(' ----------------------------------------------------------------------------------------')
 print(dataset.describe())
+
+print(' ----------------------------------------------------------------------------------------')
+print(' -------------------------------------------- Print Class Distribution / Group - Data ')
+print(' ----------------------------------------------------------------------------------------')
+####################################################################
+# class distribution - eg: number of each type of Iris in this case
+####################################################################
+print(dataset.groupby('class').size())
+
+print(' ----------------------------------------------------------------------------------------')
+print(' -------------------------------------------- Load Data (Box and Whisker) - Plot ')
+print(' ----------------------------------------------------------------------------------------')
+
+##################################################################################################################
+# The Box and Whisker Diagram visualizes the quariles of the data ( quarters )
+# The box limits indicate the range of the central 50% of the data with a central line marking the median value
+# Lines extend from each box to capture the range of the remaining data, with dots placed past the line edges to 
+# indicate outliers.
+##################################################################################################################
+
+            ___________________
+# |_________|  25%    |  25%   |_______________|
+# |    25   |_________|________|     25%       |
+
+
+dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
+plt.show()
+
